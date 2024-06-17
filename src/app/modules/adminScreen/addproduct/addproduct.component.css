@@ -1,0 +1,22 @@
+.red{
+    color:#dc3545;;
+    float: right;
+}
+.warning{
+    border-color: #dc3545;
+}
+.addproduct{
+    max-width: 30%;
+}
+
+.image-input{
+ display: flex;
+ button{
+    background-color:#2ee34f;
+    margin-left: 5px;
+ }
+ .choosefile{
+    display: none;
+ }
+}
+

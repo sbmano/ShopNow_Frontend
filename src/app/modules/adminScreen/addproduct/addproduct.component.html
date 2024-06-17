@@ -1,0 +1,117 @@
+
+<div class="addproduct">
+    <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <span *ngIf="addProductForm.get('name')?.invalid && addProductForm.get('name')?.touched"
+                class="red">
+                Name Required
+            </span>
+            <input type="text" class="form-control" formControlName="name"
+                [class.warning]="addProductForm.get('name')?.invalid && addProductForm.get('name')?.touched">
+        </div>
+    
+        <div class="mb-3">
+            <label for="gender" class="form-label">Category</label>
+            <span *ngIf="addProductForm.get('categoryid')?.invalid && addProductForm.get('categoryid')?.touched"
+                class="red">
+                Category Required
+            </span>
+            <select class="form-select" aria-label="Default select example" formControlName="categoryid"
+                [class.warning]="addProductForm.get('categoryid')?.invalid && addProductForm.get('categoryid')?.touched"
+                (ngModelChange)="getBrand($event)" >
+                <option *ngFor="let show of category" [value]="show.id">{{show.categoryName}}</option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label for="gender" class="form-label">Brand</label>
+            <span *ngIf="addProductForm.get('brandid')?.invalid && addProductForm.get('brandid')?.touched"
+                class="red">
+                Brand Required
+            </span>
+            <select class="form-select" aria-label="Default select example" formControlName="brandid"
+                [class.warning]="addProductForm.get('brandid')?.invalid && addProductForm.get('brandid')?.touched"  >
+                <option *ngFor="let show of brands" [value]="show.id">{{show.brandname}}</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="gender" class="form-label">Show in HomePage</label>
+            <span *ngIf="addProductForm.get('showInHomeScreen')?.invalid && addProductForm.get('showInHomeScreen')?.touched"
+                class="red">
+                value Required
+            </span>
+            <select class="form-select" aria-label="Default select example" formControlName="showInHomeScreen"
+                [class.warning]="addProductForm.get('showInHomeScreen')?.invalid && addProductForm.get('showInHomeScreen')?.touched"  >
+                <option *ngFor="let show of booleanvalue" [value]="show.id">{{show.value}}</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="gender" class="form-label">Offers Applicable</label>
+            <span *ngIf="addProductForm.get('isOffersApplicable')?.invalid && addProductForm.get('isOffersApplicable')?.touched"
+                class="red">
+                value Required
+            </span>
+            <select class="form-select" aria-label="Default select example" formControlName="isOffersApplicable"
+                [class.warning]="addProductForm.get('isOffersApplicable')?.invalid && addProductForm.get('isOffersApplicable')?.touched"  >
+                <option *ngFor="let show of booleanvalue" [value]="show.id">{{show.value}}</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Price</label>
+            <span *ngIf="addProductForm.get('price')?.invalid && addProductForm.get('price')?.touched"
+                class="red">
+                Price Required
+            </span>
+            <input type="number" class="form-control" formControlName="price"
+                [class.warning]="addProductForm.get('price')?.invalid && addProductForm.get('price')?.touched">
+        </div>
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Quantity</label>
+            <span *ngIf="addProductForm.get('quantity')?.invalid && addProductForm.get('quantity')?.touched"
+                class="red">
+                Quantity Required
+            </span>
+            <input type="number" class="form-control" formControlName="quantity"
+                [class.warning]="addProductForm.get('quantity')?.invalid && addProductForm.get('quantity')?.touched">
+        </div>
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Description</label>
+            <span *ngIf="addProductForm.get('description')?.invalid && addProductForm.get('description')?.touched"
+                class="red">
+                Description Required
+            </span>
+            <input type="text" class="form-control" formControlName="description"
+                [class.warning]="addProductForm.get('description')?.invalid && addProductForm.get('description')?.touched">
+        </div>
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Choose Image</label>
+            <span *ngIf="addProductForm.get('file')?.invalid && addProductForm.get('file')?.touched"
+                class="red">
+                Image Required
+            </span>
+            <div class="image-input">
+                <input type="text" class="form-control" formControlName="file"
+                [class.warning]="addProductForm.get('file')?.invalid && addProductForm.get('file')?.touched" readonly >
+            <button type="button" class="btn" (click)="imagenameinput.click()">Browse</button> 
+            <input type="file" multiple class="choosefile" (change)="selectfile($event.target)" #imagenameinput>
+            </div> 
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn" [disabled]="addProductForm.invalid"
+                style="background-color:#e3832e;">Submit</button>
+        </div> 
+
+    </form>
+    
+    
+    
+</div>

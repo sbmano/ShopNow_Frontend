@@ -1,0 +1,54 @@
+
+<!-- <mat-toolbar class="top-nav-bar">
+    <nav mat-tab-nav-bar  *ngFor="let menu of adminmenulist">
+                <a  routerLinkActive #{{menu.name}}="routerLinkActive" routerLink={{menu.link}} >{{menu.name}}</a>
+    </nav>
+
+</mat-toolbar> -->
+
+<!-- <mat-toolbar class="top-nav-bar">
+    <div class="top-nav-bar1">
+        <nav mat-tab-nav-bar *ngFor="let menu of adminmenulist">
+            <a  routerLinkActive #{{menu.name}}="routerLinkActive" routerLink={{menu.link}} >{{menu.name}}</a>
+    </nav>
+    </div>
+    <div>
+        <hr class="horizontalline">
+    </div>
+</mat-toolbar> -->
+
+    <div class="top-nav-bar" >
+        <div class="top-nav-bar1">
+            <nav mat-tab-nav-bar *ngFor="let menu of adminmenulist" >
+                <a routerLinkActive #{{menu.name}}="routerLinkActive" routerLink={{menu.link}} >{{menu.name}}</a> 
+        </nav>
+        </div>
+        <div style="background-color: white;">
+            <hr id="indicator" class="horizontalline">
+        </div>
+        <div class="content-container" style="width: 100%;">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+<!-- <hr id="indicator"> -->
+
+
+<!-- <mat-toolbar >
+
+    <mat-nav-list class="list-horizontal" *ngFor="let menu of adminmenulist">
+        <mat-list-item>
+            <button mat-menu-item>{{menu.name}}</button>
+        </mat-list-item>
+    </mat-nav-list>
+   
+</mat-toolbar> -->
+
+
+<!-- <div class="content-container">
+    <router-outlet></router-outlet>
+</div> -->
+
+<!-- <div style="background-color: white;">
+    <router-outlet></router-outlet>
+</div> -->

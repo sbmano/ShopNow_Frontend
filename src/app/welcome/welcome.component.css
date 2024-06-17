@@ -1,0 +1,51 @@
+h1 {
+    padding: 0 1rem;
+}
+
+h2 {padding: 1rem;}
+
+mat-toolbar{
+    position:fixed;
+    top:0;
+    z-index: 2;
+}
+
+mat-sidenav-container {
+    height:100%;
+    background: url("^assets/images/background4.jpg") center/ cover no-repeat;
+}
+/* Move the content down so that it won't be hidden by the toolbar */
+mat-sidenav {
+    padding-top: 3.5rem;
+    @media screen and (min-width: 600px) {
+      padding-top: 4rem;
+    }
+
+    .entry{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding:0.75rem;
+    }
+  }
+
+/* Move the content down so that it won't be hidden by the toolbar */
+/* mat-sidenav-content{
+    padding-top: 3.5rem;
+    @media screen and (min-width: 600px) {
+        padding-top: 4rem;
+    }
+} */
+
+    
+.toolbar{
+    color: rgb(255, 255, 255);
+    background-color: rgb(62, 180, 180);
+    justify-content: space-between;
+}  
+
+.content-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 25px;
+  }

@@ -1,0 +1,108 @@
+<div class="imageslider content-container">
+
+  <!-- <ng-image-slider #nav
+    [images]="imageObject"
+    [infinite]="false"
+    [autoSlide]="1"
+    
+    slideImage="1"></ng-image-slider> -->
+  <!-- [imageSize]="{width: '25%', height: 200}" -->
+
+
+  <!-- <img src="assets/images/homepageimages/image1.webp" alt=""> -->
+  <!-- [autoRotate]="true"
+    [autoRotateAfter]="5000"
+    [autoRotateRight]="true" -->
+
+
+  <!-- <angular-image-slider
+    
+    [images]="imagesUrl">
+        
+    </angular-image-slider> -->
+
+  <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <div *ngFor="let items of sliderImages;let i=index">
+        <button type="button" data-bs-target="#carousel" class="{{(i==0)?'active':''}}"
+          attr.data-bs-slide-to={{i}}></button>
+      </div>
+    </div>
+    <div class="carousel-inner slideriamge">
+      <div *ngFor="let items of sliderImages;let i=index">
+        <div class="{{(i==0)?'carousel-item active':'carousel-item'}}">
+          <img src={{items.image}} class="d-block w-100" alt="...">
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" title="Previous Slide" data-bs-target="#carousel"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" title="Next Slide" data-bs-target="#carousel"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators" *ngFor="let items of imageObject">
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to=slideno class={{items.status}} ></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" >
+                <img src="assets/images/homepageimages/image1.webp" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item inactive" >
+                <img src="assets/images/homepageimages/image2.webp" class="d-block w-100" alt="...">
+              </div>
+        </div>
+        <button class="carousel-control-prev" type="button" title="Previous Slide" data-bs-target="#carousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" title="Next Slide" data-bs-target="#carousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> -->
+
+
+  <div *ngFor="let items of topdealproducts|keyvalue">
+    <div class="topdeals">
+      <div>
+        <h2><b>Best Deals on {{items.key}}</b></h2>
+      </div>
+      <div class="topdealsingleitem">
+        <div class="box" *ngFor="let item of items.value">
+          <a routerLink="viewproduct" (click)="enablehomepage()">
+            <img src='{{imageurl+item.imageid}}' alt="">
+            <h3>{{item.name}}</h3>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- <div class="topdeals">
+    <div>
+      <h2><b>Top Sellers on Laptops</b></h2>
+    </div>
+    <div class="topdealsingleitem">
+      <div class="box" *ngFor="let items of topDealImages">
+        <img src={{items.image}} alt="">
+        <h3>{{items.name}}</h3>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+
+</div>

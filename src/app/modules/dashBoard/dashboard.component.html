@@ -1,0 +1,101 @@
+
+
+<!-- <button class="btn mt-4 mb-5 pull-right" style="background-color:#e3832e;margin-right: 20px;" type="submit" (click)="tologout()">Logout</button>
+
+<div class="d-flex justify-content-center align-items-center ">
+    <h3 style="color:rgb(123, 0, 255)"> Hello {{name}}</h3>
+</div> -->
+
+
+
+
+
+<mat-sidenav-container autosize>
+    <mat-sidenav [opened]="false" mode="over" #sidenav>
+     
+     <!-- <mat-nav-list>
+        <span class="entry">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span>Hello {{name}}</span>
+        </span>
+     </mat-nav-list> -->
+
+      <mat-nav-list *ngFor="let menu of menuList">
+        <a *ngIf="menu.name!='Administration'" mat-list-item routerLink={{menu.link}} (click)="sidenav.close()" (click)="enablehomepage(false)">
+          <span class="entry">
+            <!-- <mat-icon>{{route.icon}}</mat-icon> -->
+            <i class={{menu.icon}} aria-hidden="true"></i>
+            <span>{{menu.name}}</span>
+          </span>
+          <!-- <div *ngIf="route.name=='Administration'">
+            <mat-icon >expand_more</mat-icon>
+        </div> -->
+        </a>
+        <mat-expansion-panel *ngIf="menu.name=='Administration'" [class.mat-elevation-z0]="true">
+            <mat-expansion-panel-header style="padding-left: 16px;">
+                <span class="entry">
+                    <i class={{menu.icon}} aria-hidden="true"></i>
+                    <span>{{menu.name}}</span>
+                  </span>
+            </mat-expansion-panel-header>
+            <mat-nav-list *ngFor="let adminmenu of adminmenuList">
+                <a mat-list-item routerLink={{adminmenu.link}} (click)="sidenav.close()" (click)="enablehomepage(false)">
+                    <span class="entry">
+                        <i class={{adminmenu.icon}} aria-hidden="true"></i>
+                        <span>{{adminmenu.name}}</span>   
+                    </span>
+                </a>
+            </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+        <mat-toolbar class="toolbar">
+            <div class="logo">
+                <button mat-icon-button aria-label="Menu icon" (click)="sidenav.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <a routerLink="/dashboard" (click)="enablehomepage(true)"><span>Shop Now</span></a>
+                </button>
+            </div>
+            <div class="search-block">
+                <div>
+                        <input class="search-box" type="text" placeholder="Search for Products, Brands and More"  #searchbox (click)="openSearch()">
+                <!-- [(ngModel)]="searchText" -->
+                <i class="fa fa-search"></i>
+                    <!-- <mat-icon>search</mat-icon> -->
+                </div>
+                <!-- <div class="search-result-box" *ngIf="displaysearchresult" (click)="$event.stopPropagation()" > -->
+                    <div class="search-result-box" *ngIf="displaysearchresult">
+                    <mat-list *ngFor="let items of searchboxfilters">
+                        <a mat-list-item >{{items.itemname}}</a>
+                    </mat-list>
+
+                    <!-- <ul *ngFor="let items of searchboxfilters">
+                        <li class="color:black">{{items.itemname}}</li>
+                    </ul> -->
+                    
+                </div>
+            </div>
+            <div class="dashboard_username">
+                <span>Hello, {{name}}</span>
+            </div>
+        </mat-toolbar>
+
+        <!-- <div class="content-container">
+            <router-outlet></router-outlet>
+        </div> -->
+
+        <div>
+            <app-homepage [class.showhomepage]="!showhomepage"></app-homepage>
+            <router-outlet></router-outlet>
+        </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+
