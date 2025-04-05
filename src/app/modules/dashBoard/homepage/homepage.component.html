@@ -78,7 +78,7 @@
       </div>
       <div class="topdealsingleitem">
         <div class="box" *ngFor="let item of items.value">
-          <a routerLink="viewproduct" (click)="enablehomepage()">
+          <a routerLink="viewproduct" (click)="enablehomepage(false)">
             <img src='{{imageurl+item.imageid}}' alt="">
             <h3>{{item.name}}</h3>
           </a>

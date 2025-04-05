@@ -1,1 +1,28 @@
-<p>searchresult works!</p>
+<div class="searchresult-content-container">
+    <div class="d-flex">
+        <div class="col-1">
+            <h2>Filters</h2>
+            <div class="filter-row">
+
+            </div>
+        </div>
+        <div class="col-2">
+            <h2>Results</h2>
+            <div *ngFor="let searchresult of searchresults;let i=index">
+                <div class="result-row">
+                    <div class="searchresult-img-div">
+                        <img src={{searchresult.image}} alt="" class="">
+                    </div>
+                    <div class="description">
+                        <h2>vivo T3x 5G (Crimson Bliss, 128 GB) (6 GB RAM)</h2>
+                        <div class="rating">
+                            <p><span>4.5<i class="fa fa-star"></i></span> 256 Ratings & 80 Reviews</p>
+                        </div>
+                        <h1 class="amount">{{13000 | currency: 'INR'}}</h1>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+            </div>
+        </div>
+    </div>
+</div>

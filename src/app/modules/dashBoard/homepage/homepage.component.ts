@@ -62,8 +62,8 @@ getvalue(items:any,key:any){
   return Array.from(items.get(key))
 }
 
-enablehomepage(){
-  this.dashboardservice.showhomepage.next(false);
+enablehomepage(value:boolean){
+  this.dashboardservice.showhomepage.next(value);
 }
 
 }

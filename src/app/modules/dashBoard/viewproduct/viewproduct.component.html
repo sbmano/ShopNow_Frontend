@@ -1,25 +1,118 @@
-<div class="content-container">
-    <div class="col-1">
-            <div class="">
-                <img src="assets/images/homepageimages/mobiles/image2.webp" alt="" class="small-img">
+<div class="viewproduct-content-container">
+    <div class="row1">
+        <div class="col-1">
+            <div *ngFor="let image of imageGallary;let i=index">
+                <img src={{image}} alt="" class="small-img" (mouseenter)="select(image)">
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="img_div">
+                <img src={{currentImage}} alt="" id="previewimage">
             </div>
             <div>
-                <img src="assets/images/homepageimages/mobiles/image3.webp" alt="" class="small-img">
+                <button class=" mt-4 mb-5" style="background-color:#ff9f00;" type="submit">
+                    <i class="fa fa-shopping-cart"></i>ADD TO CART</button>
+                <button class=" mt-4 mb-5" style="background-color:#FB641B;" type="submit">
+                    <i class="fa fa-shopping-bag"></i>BUY NOW</button>
             </div>
-            <div>
-                <img src="assets/images/homepageimages/mobiles/image4.webp" alt="" class="small-img">
+        </div>
+        <div class="col-3">
+            <h2>vivo T3x 5G (Crimson Bliss, 128 GB) (6 GB RAM)</h2>
+            <div class="rating">
+                <p><span>4.5<i class="fa fa-star"></i></span> 256 Ratings & 80 Reviews</p>
             </div>
-    </div>
-    <div class="col-2" >
-        <img src="assets/images/homepageimages/mobiles/image1.webp" alt="" id="productimg">
-        <div>
-            <button class=" mt-4 mb-5" style="background-color:#ff9f00;" type="submit">
-                <i class="fa fa-shopping-cart"></i>ADD TO CART</button>
-            <button class=" mt-4 mb-5" style="background-color:#FB641B;" type="submit">
-                <i class="fa fa-bag-shopping"></i>BUY NOW</button>
+            <h1 class="amount">{{13000 | currency: 'INR'}}</h1>
+            <div class="delivery">
+                <p><span>Delivery</span>2/123, New York, London, UnitedStates - 567123
+                    <button class="btn btn-sm" type="submit">
+                        <i class="fa fa-map-marker-alt"></i> Change</button>
+                </p>
+            </div>
+            <div class="highlights">
+                <p><span>Highlights</span></p>
+                <div>
+                    <li>4 GB RAM | 128 GB ROM | Expandable Upto 1 TB</li>
+                    <li>17.07 cm (6.72 inch) Full HD+ Display</li>
+                    <li>50MP + 2MP | 8MP Front Camera</li>
+                    <li>6000 mAh Battery</li>
+                    <li>6 Gen 1 Processor</li>
+                </div>
+            </div>
+            <div class="features">
+                <h1>Product Features</h1>
+                <mat-divider></mat-divider>
+                <div *ngFor="let feature of productfeatures;let i=index">
+                    <div class="description-row" ngClass="{{i%2!=0?'oddrow':'evenrow'}}">
+                        <div class="description">
+                            <p>{{feature.description}}</p>
+                        </div>
+                        <div>
+                            <img src={{feature.image}} alt="" class="">
+                        </div>
+                    </div>
+                    <mat-divider></mat-divider>
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class="col-3">
-        <img src="assets/images/homepageimages/mobiles/image1.webp" alt="">
+
+    <mat-divider></mat-divider>
+
+    <div class="row2">
+        <div class="header">
+            <h2>Similar with Faster Performance</h2>
+        </div>
+        <mat-divider></mat-divider>
+
+        <div class="similarproducts_row">
+                    <div class="leftscroll">
+                        <button class="btn" (click)="scrollleft(200)"><b><i class="fa fa-less-than"></i></b></button>
+                    </div>
+                    <div class="rightscroll">
+                        <button class="btn" (click)="scrollright(-200)"><b><i class="fa fa-greater-than"></i></b></button>
+                    </div>
+            <div class="similarproductitems" id="similarproducts">
+                <div class="singleitem" [style]="scrollvalue" *ngFor="let items of topDealImages">
+                    <a href="">
+                        <img src={{items.image}} alt="">
+                        <h3>{{items.name}}</h3>
+                    </a>
+                </div>
+            </div>
+            
+            
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+<div>
+    <div>
+        <h2><b>Similar Products with Faster Performance</b></h2>
     </div>
 </div>
+
+
+<!-- <div class="similarproducts">
+    <div>
+        <div>
+            <h2><b>Similar Products with Faster Performance</b></h2>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="row2">
+            <div class="similarproductsitems">
+                <div class="box">
+                    <a routerLink="viewproduct">
+                        <img src='' alt="">
+                        <h3></h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> -->

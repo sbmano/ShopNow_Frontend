@@ -6,6 +6,7 @@ import { MyordersComponent } from './myorders/myorders.component';
 import { MycartComponent } from './mycart/mycart.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ViewproductComponent } from './viewproduct/viewproduct.component';
+import { SearchresultComponent } from './searchresult/searchresult.component';
 
 const routes: Routes = [
   {path:'',
@@ -30,6 +31,10 @@ const routes: Routes = [
     {
       path: 'viewproduct',   
       component: ViewproductComponent,
+    },
+    {
+      path: 'searchresult',   
+      component: SearchresultComponent,
     },
     { 
       path: 'adminscreens', 

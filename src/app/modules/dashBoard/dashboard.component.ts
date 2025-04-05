@@ -47,9 +47,9 @@ export class DashboardComponent implements OnInit {
     this.route.navigate(['/api/auth/login']);
   }
 
-  openSearch(){
-    this.displaysearchresult=true;
-    console.log("displaysearchresult input : "+ this.displaysearchresult)
+  Search(value:boolean){
+    this.displaysearchresult=value;
+    //console.log("displaysearchresult input : "+ this.displaysearchresult)
   }
 
   enablehomepage(value:boolean){
@@ -65,5 +65,16 @@ export class DashboardComponent implements OnInit {
   //   clickit(){
   //     this.displaysearchresult = !this.displaysearchresult;
   //     }
+
+   @HostListener('document:click', ['$event.srcElement'])
+   DocumentClick(event:Element){
+      //const elementId:Element=(event.srcElement as Element);
+      // console.log("hostlistner elementID: ")
+      // console.log(event.id)
+      if(this.displaysearchresult&&event.id!="searchbox"){
+        this.displaysearchresult=false;
+      }
+   } 
+  
     
 }
